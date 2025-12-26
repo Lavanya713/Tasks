@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registrations</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  /* Page Base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Navigation */
+.navbar {
+  background-color: #34495e;
+  text-align: center;
+  padding: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 15px;
+  padding: 8px 12px;
+}
+
+.navbar a:hover {
+  background-color: #1abc9c;
+  border-radius: 5px;
+}
+
+/* Content Section */
+.container {
+  background-color: white;
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Image */
+.event-img {
+  width: 120px;
+  display: block;
+  margin: 10px auto 20px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #bbb;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #1abc9c;
+  color: white;
+}
+
+tr:hover {
+  background-color: #ecf0f1;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>College Event Registrations</h1>
+    <p>List of students registered for various events</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="#tech">Tech Events</a>
+    <a href="#cultural">Cultural Events</a>
+    <a href="#sports">Sports</a>
+  </nav>
+
+  <section class="container" id="tech">
+    <h2>Technical Events</h2>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" 
+         alt="Tech Event" class="event-img">
+
+    <table>
+      <tr>
+        <th>Student Name</th>
+        <th>Event</th>
+        <th>Branch</th>
+      </tr>
+      <tr>
+        <td>Anjali</td>
+        <td>Hackathon</td>
+        <td>CSE</td>
+      </tr>
+      <tr>
+        <td>Ravi</td>
+        <td>Code Debugging</td>
+        <td>IT</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="container" id="cultural">
+    <h2>Cultural Events</h2>
+
+    <table>
+      <tr>
+        <th>Student Name</th>
+        <th>Event</th>
+        <th>Year</th>
+      </tr>
+      <tr>
+        <td>Sneha</td>
+        <td>Dance</td>
+        <td>2nd</td>
+      </tr>
+      <tr>
+        <td>Kiran</td>
+        <td>Singing</td>
+        <td>3rd</td>
+      </tr>
+    </table>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 College Fest Committee</p>
+  </footer>
+
+</body>
+</html>

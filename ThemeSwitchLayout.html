@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Themed Layout</title>
+
+<style>
+:root {
+    --bg-color: #e4aaaa;
+    --text-color: #222;
+    --card-bg: #cc508c;
+    --primary-color: #007bff;
+    --spacing: 16px;
+    --font-main: 'Arial', sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e9e9e9;
+    --card-bg: #1f1f1f;
+    --primary-color: #4da3ff;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 40px;
+    transition: 0.3s;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.card {
+    background: var(--card-bg);
+    padding: var(--spacing);
+    border-radius: 10px;
+    border: 1px solid #dadce0;
+}
+
+.theme-btn {
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    align-self: center;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    opacity: 0.8;
+}
+
+</style>
+</head>
+<body>
+
+<h1>🌗 Theme Switch Layout</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Welcome</h2>
+        <p>This layout supports light and dark themes using CSS custom properties.</p>
+    </div>
+
+    <div class="card">
+        <h2>About</h2>
+        <p>SCSS was used to create organized, reusable styles with variables and mixins.</p>
+    </div>
+
+    <button class="theme-btn" onclick="toggleTheme()">Switch Theme</button>
+
+</div>
+
+<script>
+function toggleTheme() {
+    const body = document.body;
+    const isDark = body.getAttribute("data-theme") === "dark";
+    body.setAttribute("data-theme", isDark ? "light" : "dark");
+}
+</script>
+
+</body>
+</html>

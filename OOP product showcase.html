@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Product Showcase</title>
+  <style>
+    /* === Variables & Themes === */
+    :root {
+      --light-bg: #f4f4f9;
+      --light-text: #111;
+      --dark-bg: #1c1c1c;
+      --dark-text: #f4f4f9;
+      --primary-color: #ff6f61;
+      --secondary-color: #4f86f7;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light-theme {
+      background: var(--light-bg);
+      color: var(--light-text);
+    }
+
+    body.dark-theme {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .theme-toggle input[type="checkbox"] {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card.dark-theme {
+      background: #2c2c2c;
+      color: var(--dark-text);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-card .details {
+      padding: 1rem;
+    }
+
+    .product-card .details h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    .product-card .details p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .product-card .details .price {
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+
+  </style>
+</head>
+<body class="light-theme">
+  <header>
+    <h1>Product Showcase</h1>
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="themeSwitch">
+        Toggle Theme
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section class="products" id="productList">
+      <!-- Products will appear here -->
+    </section>
+  </main>
+
+  <script>
+    // === Product Class ===
+    class Product {
+      constructor(name, description, price, image) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.image = image;
+      }
+
+      render() {
+        return `
+          <div class="product-card">
+            <img src="${this.image}" alt="${this.name}">
+            <div class="details">
+              <h2>${this.name}</h2>
+              <p>${this.description}</p>
+              <p class="price">$${this.price}</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // === Sample Products ===
+    const products = [
+      new Product("Smartphone", "Latest smartphone with AI camera", 800, <img src="Smartphone"),
+      new Product("Headphones", "Noise-cancelling over-ear headphones", 150, "https://via.placeholder.com/300x180"),
+      new Product("Smartwatch", "Track your fitness and notifications", 200, "https://via.placeholder.com/300x180")
+    ];
+
+    // === Render Products ===
+    const productList = document.getElementById("productList");
+    productList.innerHTML = products.map(product => product.render()).join('');
+
+    // === Theme Toggle ===
+    const themeSwitch = document.getElementById("themeSwitch");
+    themeSwitch.addEventListener('change', () => {
+      document.body.classList.toggle('dark-theme');
+      document.body.classList.toggle('light-theme');
+
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.classList.toggle('dark-theme');
+      });
+    });
+  </script>
+</body>
+</html>

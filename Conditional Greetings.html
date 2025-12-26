@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Conditional Greeting with Emotions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+  }
+
+  input, select, button {
+    padding: 8px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  p {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+</style>
+</head>
+
+<body>
+
+<h2>Your Name and Mood</h2>
+
+<input type="text" id="nameInput" placeholder="Enter your name">
+
+<select id="emotion">
+  <option value="">Select Emotion</option>
+  <option value="happy">Happy</option>
+  <option value="sad">Sad</option>
+  <option value="excited">Excited</option>
+</select>
+
+<button onclick="sayHi()">Say Hi</button>
+
+<p id="greeting"></p>
+
+<script>
+function sayHi() {
+  var name = document.getElementById("nameInput").value;
+  var mood = document.getElementById("emotion").value;
+  var greetingText = "";
+
+  if (name === "") {
+    greetingText = "Hello! Please enter your name 😊";
+  } else if (mood === "") {
+    greetingText = "Hello, " + name + "! Please select your mood.";
+  } else {
+    if (mood === "happy") {
+      greetingText = "Hello, " + name + "! 😄 You seem happy today!";
+    } else if (mood === "sad") {
+      greetingText = "Hello, " + name + "! 😢 It's okay to feel sad sometimes.";
+    } else if (mood === "excited") {
+      greetingText = "Hello, " + name + "! 🤩 You look excited!";
+    }
+  }
+
+  document.getElementById("greeting").innerText = greetingText;
+}
+</script>
+
+</body>
+</html>

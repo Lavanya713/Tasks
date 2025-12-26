@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* Background */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1d002b, #020024);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Glass Card */
+.dashboard {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* Heading */
+.dashboard h1 {
+    color: #e0b3ff;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.dashboard p {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: block;
+    margin: 15px 0;
+    padding: 14px;
+    background: linear-gradient(135deg, #9f2bff, #d400ff);
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #ffffff, #e5d0ff);
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Footer Text */
+.footer-text {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 25px;
+    }
+
+    .dashboard h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+    <h1>WELCOME</h1>
+    <p>Your project dashboard</p>
+
+    <a href="Demo4.html" class="btn">Tables</a>
+    <a href="Demo3.html" class="btn">Events</a>
+    <a href="ContactCard.html" class="btn">Contact Card</a>
+    <a href="Demo6.html" class="btn">Demo CSS</a>
+
+    <div class="footer-text">
+        © 2025 | Student Project
+    </div>
+</div>
+
+</body>
+</html>
+
+

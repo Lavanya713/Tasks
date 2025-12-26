@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager - Card Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    .task-manager {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1fe1eb;
+      margin-bottom: 1rem;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 0.7rem 1rem;
+      border: none;
+      background: #1db0ef;
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #36dcdc;
+    }
+
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .task-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .task-card.completed {
+      opacity: 0.6;
+      text-decoration: line-through;
+      background: #dcedc8;
+    }
+
+    .task-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .task-text {
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .task-actions button {
+      margin-left: 0.5rem;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+
+    .task-actions .complete-btn {
+      background: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .task-actions .complete-btn:hover {
+      background: #388e3c;
+    }
+
+    .task-actions .delete-btn {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .task-actions .delete-btn:hover {
+      background: #e64a19;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 480px) {
+      .task-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .task-actions {
+        margin-top: 0.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="task-manager">
+    <h1>Task Manager</h1>
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Enter a new task">
+      <button onclick="addTask()">Add</button>
+    </div>
+
+    <div class="task-list" id="taskList">
+      <!-- Task cards will appear here -->
+    </div>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    function addTask() {
+      const taskText = taskInput.value.trim();
+      if (!taskText) return alert("Please enter a task");
+
+      // Create task card
+      const card = document.createElement('div');
+      card.classList.add('task-card');
+
+      const span = document.createElement('span');
+      span.classList.add('task-text');
+      span.textContent = taskText;
+
+      const actions = document.createElement('div');
+      actions.classList.add('task-actions');
+
+      const completeBtn = document.createElement('button');
+      completeBtn.textContent = '✓';
+      completeBtn.classList.add('complete-btn');
+      completeBtn.onclick = () => card.classList.toggle('completed');
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = '🗑';
+      deleteBtn.classList.add('delete-btn');
+      deleteBtn.onclick = () => card.remove();
+
+      actions.appendChild(completeBtn);
+      actions.appendChild(deleteBtn);
+
+      card.appendChild(span);
+      card.appendChild(actions);
+
+      taskList.appendChild(card);
+      taskInput.value = '';
+    }
+
+    // Add task on pressing Enter key
+    taskInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') addTask();
+    });
+  </script>
+
+</body>
+</html>
+
